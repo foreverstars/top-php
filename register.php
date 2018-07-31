@@ -18,7 +18,8 @@
   			$data['code'] = 1;
   			$data['message'] = "用户名和密码为空";
 				echo json_encode($data);
-				die();
+				mysqli_close($link);
+				exit();
 			}
 			$dbusername = null;
 			$result = mysqli_query($link, "select * from user where username='{$username}'");
@@ -29,6 +30,7 @@
 				// 用户已存在
 				$data['code'] = 2;
 				$data['message'] = "该用户名已存在";
+				mysqli_close($link);
 				echo json_encode($data);
 			} else {
 				// 注册成功
