@@ -11,9 +11,10 @@
   $title = $json['title'];
   $content = $json['content'];
   $type = $json['type'];
+  $brief = $json['brief'];
   // $time = time();
 
-  $sql = "insert into blog_list (author, authorId, title, content, type) values ('$author', $authorId , '$title', '$content', '$type')";
+  $sql = "insert into blog_list (author, authorId, title, content, type, brief) values ('$author', $authorId , '$title', '$content', '$type', '$brief')";
   // 执行sql语句
   if (mysqli_query($link, $sql)){
     $data['code'] = 0;

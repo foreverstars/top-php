@@ -8,9 +8,10 @@
   $conn = mysqli_connect('127.0.0.1', 'root', '123456', 'web');
   mysqli_options($conn,MYSQLI_OPT_INT_AND_FLOAT_NATIVE,true);
   
-  $sql = "select * from blog_list where type= '$type'";
+  $sql = "select id, type, time, title, brief from blog_list where type= '$type'";
 
   $ret = mysqli_query($conn, $sql);
+
   if (mysqli_num_rows($ret) > 0) {
     $list = array();
     while ($row = mysqli_fetch_assoc($ret)) {
